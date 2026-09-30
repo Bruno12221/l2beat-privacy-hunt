@@ -20,5 +20,4 @@ See [CHALLENGE-6.md](CHALLENGE-6.md) for the trace and [`decoder/`](decoder/) fo
 
 Public data proves both edges of the Zcash shielded pool and the full route on either side. The connection *inside* the shielded pool is intentionally hidden. Linking the later exit to the earlier payout is therefore an edge-correlation inference, not a public Zcash spend graph.
 
-This repository is private while the evidence is organized for a longer report.
 
