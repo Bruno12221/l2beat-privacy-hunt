@@ -1,0 +1,12 @@
+[package]
+name = "zcash-zero-ovk-decoder"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+orchard = "0.15.5"
+zcash_address = "0.13.0"
+zcash_note_encryption = "0.4.2"
+zcash_primitives = { version = "0.30.1", default-features = false, features = ["std"] }
+zcash_protocol = { version = "0.10.5", default-features = false, features = ["std"] }
+
