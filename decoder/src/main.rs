@@ -45,10 +45,29 @@ fn main() {
     });
 
     if let Some(bundle) = data.ironwood_bundle() {
+        println!("ironwood_bundle_version={:?}", bundle.bundle_version());
+        println!("ironwood_anchor={}", hex(&(*bundle.anchor()).to_bytes()));
+        println!(
+            "ironwood_spends_enabled={}",
+            bundle.flags().spends_enabled()
+        );
+        println!(
+            "ironwood_outputs_enabled={}",
+            bundle.flags().outputs_enabled()
+        );
+        println!(
+            "ironwood_cross_address_enabled={}",
+            bundle.flags().cross_address_enabled()
+        );
         println!("ironwood_actions={}", bundle.actions().len());
         let ovk = OutgoingViewingKey::from([0u8; 32]);
 
         for (i, action) in bundle.actions().iter().enumerate() {
+            println!(
+                "ironwood[{i}] nullifier={}",
+                hex(&(*action.nullifier()).to_bytes())
+            );
+            println!("ironwood[{i}] cmx={}", hex(&(*action.cmx()).to_bytes()));
             let domain = IronwoodDomain::for_action(action);
             let recovered = try_output_recovery_with_ovk(
                 &domain,
