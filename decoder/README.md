@@ -24,3 +24,15 @@ ironwood[0] recovered_value_zat=143490
 ironwood[0] target_ua_match=true
 ```
 
+## Challenge 7 utilities
+
+The additional binaries are `note_ledger` (JSON-line raw transaction decoding
+and recoverable output values), `unified_receivers` (typed receiver bytes), and
+`ironwood_anchor_scan` (public tree/anchor checks). Recovering an output does
+not identify the private note consumed by a later transaction.
+
+See the [Challenge 7 methods](../docs/challenge7/METHODS.md) for scope and data
+requirements. Build in a separate target directory when preserving a pinned
+historical binary; the publication deliberately excludes binaries and raw
+evidence caches. The package's default run target remains the original
+challenge-6 decoder, so adding these binaries does not change the command above.

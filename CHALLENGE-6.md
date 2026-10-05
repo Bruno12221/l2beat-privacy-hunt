@@ -103,7 +103,16 @@ Proven from public artifacts:
 
 Inferred:
 
-- That the later shielded-pool exit belongs to the earlier payout. Zcash correctly hides the internal spend graph. The return amount is larger than the recovered payout note, indicating that notes were merged or additional shielded funds were used.
+- That the later shielded-pool exit belongs to the earlier payout. Zcash correctly hides the
+  internal spend graph.
+
+The earlier report inferred a note merge because the recovered bridge payout is `143,490` zats
+while the later pool outflow is `328,096` zats. The challenge author explicitly corrected that
+interpretation: no merge occurred, and the full amount they received was spent to enable
+amount/timing correlation. The two public figures therefore cannot be treated as a proven
+note-to-spend chain; either the relevant received note is not the `143,490`-zat output identified
+above or part of our route interpretation is incomplete. This correction is specific to Challenge
+6 and does not imply that Challenge 7's earlier funding transaction spent its full input without
+shielded change.
 
 The intended deanonymization is therefore a combination of deterministic public leakage around Confidential Intents and its Zcash connector, followed by the documented Zcash round-trip edge-correlation heuristic.
-
